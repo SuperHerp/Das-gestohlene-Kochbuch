@@ -7,9 +7,9 @@
 - 10 Scheiben Brot (Brotschneidemaschine Stufe 7 , aus 1/4 Holzofenbrot)
 - 75g Butter
 - 5 Knoblauchzehen
-- 1/2 Teelöffel Salz
+- 1/2TL Salz
 - Optional:
-  - Petersilienlaub (nicht bei [[Caesar Salad]])
+  - Petersilienlaub (nicht bei [Caesar Salad](../hearty/caesar-salat.md))
 
 ## Allgemein
 
@@ -21,11 +21,11 @@
 
 - Brot in Würfel (ca. 1x1 cm) schneiden
 - Butter in einer flachen Pfanne schmelzen (Stufe 4)
-- Brotwürfel 5Min in der Butter rösten, dann wenden, nochmals 5 Min rösten, danach nach Bedarf weiter rösten, unter stetigem Wenden
-- Sind die Croutons schön gebräunt, Herdplatte ausschalten und sofort
-- Knoblauchzehen darüber pressen, salzen (nach Geschmack) und vermischen
+- Brotwürfel in der Butter rösten und alle 5 Minuten wenden
+- Nach rösten sofort Knoblauchzehen darüber pressen
+- salzen (nach Geschmack) und gut vermischen
 
 ## Related:
 
-- [[Caesar Salad]]
+- [Caesar-Salat](../hearty/caesar-salat.md)
 
