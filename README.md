@@ -10,6 +10,7 @@
 ### Deftiges
 
 - [Caesar-Salad](hearty/caesar-salat.md)
+- [Buchweizen](hearty/buchweizen.md)
 
 ### Soßen
 
