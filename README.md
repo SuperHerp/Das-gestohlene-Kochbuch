@@ -4,24 +4,31 @@
 
 ### Teig
 
-- [Strudel-Teig](dough/strudel-teig.md)
-- [Mürb-Teig](dough/muerb-teig.md)
+- [Strudel Teig](teig/strudel_teig.md)
+- [Mürb Teig](teig/muerb_teig.md)
+- [Blätterteig mit Fett](teig/blaetterteig.md)
+- [Blätterteig mit Butter](teig/blatterteigmitbutter.md)
 
 ### Deftiges
 
-- [Caesar-Salad](hearty/caesar-salat.md)
-- [Buchweizen](hearty/buchweizen.md)
+- [Caesar-Salad](herzhaft/caesar_salat.md)
+- [Buchweizen](herzhaft/buchweizen.md)
 
 ### Soßen
 
-- [Caesar-Dressing](sauces/caesar-dressing.md)
+- [Caesar Dressing](sossen/caesar_dressing.md)
+- [Orangendressing](sossen/orangendressing.md)
 
 ### Toppings
 
-- [Croutons](toppings/croutons.md)
+- [Croutons](toppings/Croutons.md)
 
 ### Süßes
 
-- [Wiener Apfelstrudel](sweet/wiener-apfelstrudel.md)
-- [Rahmkuchen](sweet/rahm-kuchen.md)
-- [Träubleskuchen](sweet/traeubles-kuchen.md)
+- [Wiener Apfelstrudel](suess/wiener_apfelstrudel.md)
+- [Rahmkuchen](suess/rahm_kuchen.md)
+- [Träubleskuchen](suess/traeubles_kuchen.md)
+
+### Suppen
+
+- [Huehnersuppe](suppen/huehnersuppe.md)

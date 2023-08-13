@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Das gestohlene Kochbuch</title>
+    <link rel="icon" type="image/x-icon" href="!_website/pictures/icons/thief.png">
+    <script src="!_website/js/marked.js"></script>
+    <script src="!_website/js/script.js"></script>
+    <link rel="stylesheet" href="!_website/css/stylesheet.css">
+    <link rel="stylesheet" src="!_website/js/monaco/min/vs/editor/editor.main.css">
+    <script src="!_website/js/monaco/min/vs/loader.js"></script>
+    <link rel="stylesheet" href="!_website/js/highlight/styles/custom-night-dark.min.css">
+    <script src="!_website/js/highlight/highlight.min.js"></script>
+</head>
+<body>
+    <div id="menu">
+        <button id="edit-btn">Seite bearbeiten</button>
+        <!-- <button id="cancel-btn">Cancel</button> -->
+        <button id="save-btn">Speichern</button>
+        <button id="preview-btn">Vorschau öffnen</button>
+        <button id="explorer-btn">Datei Explorer anzeigen</button>
+        <div id="notification" class="notification-container"></div>
+    </div>
+    <div id="content">
+        <!-- rendered markdown -->
+    </div>
+    <div id="editor">
+        <!-- editor -->
+    </div>
+    <div id="preview">
+        <!-- md-preview -->
+    </div>
+    <div id="explorer">
+        <h1>Explorer</h1>
+        <div id="filepath">
+            <input id="currentFP" type="text" value="./">
+            <div id="expl-menu">
+                <button id="createFile-btn">Datei hinzufügen</button>
+                <button id="openPage-btn">Seite öffnen</button>
+            </div>
+        </div>
+        <div id="dirTree">
+        </div>
+    </div>
+</body>
+</html>

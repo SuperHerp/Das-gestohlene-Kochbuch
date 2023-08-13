@@ -1,0 +1,256 @@
+/* Font for normal text "Open Sans" */
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap'); */
+/* Font for Code snippets "Fira Code" */
+/* @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap'); */
+/* @import url('fonts/DelugiaMonoComplete.ttf');*/
+
+@font-face {
+    font-family: Delugia;
+    src: url('../fonts/DelugiaMonoCompleteLight.ttf');
+}
+@font-face {
+    font-family: OpenSans;
+    src: url('../fonts/OpenSans-Regular.ttf');
+}
+
+#expl-menu{
+    display: flex;
+    flex-direction: row;
+    width: inherit;
+}
+
+#filepath{
+    display: flex;
+    flex-direction: column;
+}
+
+#currentFP {
+    width: inherit;
+    font-family: 'OpenSans', sans-serif;
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+#createFile-btn,
+#openPage-btn{
+    background-color: #58a6ff; /* Button background color */
+    color: #ffffff; /* Button text color */
+    border: none;
+    padding: 5px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#explorer-btn{
+    background-color: #58a6ff; /* Button background color */
+    color: #ffffff; /* Button text color */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px; /* Adjust spacing between buttons */
+    display: block;
+}
+
+#explorer{
+    display: none;
+}
+
+#menu{
+    display: flex;
+    flex-direction: row;
+}
+
+#editor{
+    background-color: #1e1e1e;
+    display: none;
+    border: #2a7fd4 2px solid;
+    border-radius: 15px;
+    height: 80vh;
+    padding: 10px;
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#save-btn,
+#cancel-btn,
+#preview-btn {
+    background-color: #58a6ff; /* Button background color */
+    color: #ffffff; /* Button text color */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px; /* Adjust spacing between buttons */
+    display: none;
+}
+
+#save-btn:hover,
+#cancel-btn:hover,
+#preview-btn:hover {
+    background-color: #2a7fd4; /* Hover background color */
+}
+
+#edit-btn {
+    background-color: #ff9e36;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    display: flex;
+}
+
+#edit-btn:hover {
+    background-color: #ffb45e; /* Edit button hover background color */
+}
+
+.notification-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    display: none;
+}
+
+.notification-container.success {
+    background-color: #8bc34a; /* Green background for success */
+    color: #fff;
+}
+
+.notification-container.error {
+    background-color: #f44336; /* Red background for error */
+    color: #fff;
+}
+
+
+body{
+    font-family: 'OpenSans', sans-serif;
+    background-color: #0d1117;
+    border: 2px solid #30363d;
+    border-radius: 15px;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    color: #c9d1d9;
+}
+
+a:link{
+    text-decoration: none;
+    color: #58a6ff;
+}
+
+a:hover{
+    text-decoration: underline;
+    color: #58a6ff;
+}
+
+a:visited{
+    color: #58a6ff;
+}
+
+h1::after{
+    content: '  ';
+    display: block;
+    border: 1px solid #21262d;
+    border-radius: 15px;
+}
+
+h2::after{
+    content: '  ';
+    display: block;
+    border: 1px solid #21262d;
+    border-radius: 15px;
+}
+
+hr {
+    border: 1px solid #21262d;
+    border-radius: 15px;
+}
+
+table{
+    border: 1px solid #30363d;
+    border-radius: 5px;
+}
+
+th, td {
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    padding: 1vw;
+}
+
+pre{
+    display: flex;
+    width: fit-content;
+    background-color: #161b22;
+    color: #ffffff;
+    border-radius: 15px !important;
+}
+
+pre code {
+    border-radius: 15px !important;
+    /* font-family: 'Fira Code', monospace; */
+    font-family: 'Delugia', monospace;
+    font-display: swap;
+    font-size: 11pt;
+}
+
+.hljs {
+    background: #1c2531 !important;
+}
+
+#search-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+/* Styles for the search input */
+#search-bar {
+    width: 300px; /* Adjust the width as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333; /* Background color for dark theme */
+    color: #fff; /* Text color for dark theme */
+    font-size: 16px;
+}
+
+/* Styles for the search results list */
+#search-results {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+/* Add new styles for the overlay */
+#search-overlay {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: #1e1e1e; /* GitHub dark theme background color */
+    color: #fff; /* GitHub dark theme text color */
+    padding: 10px;
+    border: 1px solid #444; /* GitHub dark theme border color */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#search-results li.selected {
+    background-color: #333; /* GitHub dark theme background color for selected item */
+}
