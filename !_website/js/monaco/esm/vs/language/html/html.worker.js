@@ -6075,11 +6075,11 @@ var legacy_beautify_css;
         if (this._end_with_newline) {
           this.__add_outputline();
         }
-        var suess_code = this.__lines.join("\n");
+        var sweet_code = this.__lines.join("\n");
         if (eol !== "\n") {
-          suess_code = suess_code.replace(/[\n]/g, eol);
+          sweet_code = sweet_code.replace(/[\n]/g, eol);
         }
-        return suess_code;
+        return sweet_code;
       };
       Output.prototype.set_wrap_point = function() {
         this.current_line._set_wrap_point();
@@ -6802,8 +6802,8 @@ var legacy_beautify_css;
             this.print_string(this._ch);
           }
         }
-        var suessCode = this._output.get_code(eol);
-        return suessCode;
+        var sweetCode = this._output.get_code(eol);
+        return sweetCode;
       };
       module.exports.Beautifier = Beautifier;
     },
@@ -7085,11 +7085,11 @@ var legacy_beautify_html;
         if (this._end_with_newline) {
           this.__add_outputline();
         }
-        var suess_code = this.__lines.join("\n");
+        var sweet_code = this.__lines.join("\n");
         if (eol !== "\n") {
-          suess_code = suess_code.replace(/[\n]/g, eol);
+          sweet_code = sweet_code.replace(/[\n]/g, eol);
         }
-        return suess_code;
+        return sweet_code;
       };
       Output.prototype.set_wrap_point = function() {
         this.current_line._set_wrap_point();
@@ -8083,8 +8083,8 @@ var legacy_beautify_html;
           last_token = parser_token;
           raw_token = tokens.next();
         }
-        var suess_code = printer._output.get_code(eol);
-        return suess_code;
+        var sweet_code = printer._output.get_code(eol);
+        return sweet_code;
       };
       Beautifier.prototype._handle_tag_close = function(printer, raw_token, last_tag_token) {
         var parser_token = {

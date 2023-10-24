@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Das gestohlene Kochbuch</title>
-    <link rel="icon" type="image/x-icon" href="!_website/pictures/icons/thief.png">
+    <title>Kochbuch</title>
     <script src="!_website/js/marked.js"></script>
     <script src="!_website/js/script.js"></script>
+    <script src="!_website/js/search.js"></script>
+    <script type="text/javascript" src="!_website/js/purify/purify.min.js"></script>
     <link rel="stylesheet" href="!_website/css/stylesheet.css">
     <link rel="stylesheet" src="!_website/js/monaco/min/vs/editor/editor.main.css">
     <script src="!_website/js/monaco/min/vs/loader.js"></script>
@@ -14,12 +14,19 @@
 </head>
 <body>
     <div id="menu">
-        <button id="edit-btn">Seite bearbeiten</button>
-        <!-- <button id="cancel-btn">Cancel</button> -->
-        <button id="save-btn">Speichern</button>
-        <button id="preview-btn">Vorschau öffnen</button>
-        <button id="explorer-btn">Datei Explorer anzeigen</button>
+        <input type="text" placeholder="Search" id="search-field">
+        <button id="edit-btn">Edit Page</button>
+        <button id="save-btn">Save</button>
+        <button id="preview-btn">Show Preview</button>
+        <button id="explorer-btn">Show Explorer</button>
+        <button id="gendocs-btn">Generate Searchindex</button>
         <div id="notification" class="notification-container"></div>
+    </div>
+    <div id="search-results">
+        <!-- search results window -->
+        <ul id="results-list">
+            <!-- search reuslts list -->
+        </ul>
     </div>
     <div id="content">
         <!-- rendered markdown -->
@@ -33,10 +40,10 @@
     <div id="explorer">
         <h1>Explorer</h1>
         <div id="filepath">
-            <input id="currentFP" type="text" value="./">
+            <input id="currentFP" type="text">
             <div id="expl-menu">
-                <button id="createFile-btn">Datei hinzufügen</button>
-                <button id="openPage-btn">Seite öffnen</button>
+                <button id="createFile-btn">Create file</button>
+                <button id="openPage-btn">Open Page</button>
             </div>
         </div>
         <div id="dirTree">
