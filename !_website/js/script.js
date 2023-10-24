@@ -373,7 +373,21 @@ async function togglePreview(event) {
  * If user specification doesnt meed requirements it fails and shows notification
  */
 async function addPage(event) {
-    let filePath = document.getElementById("currentFP").value;
+    let filePath = document.getElementById("currentFP").value.replace(/\s+/g, '_');
+
+    filePath = filePath
+        .replace(/ä/g, 'ae')
+        .replace(/ö/g, 'oe')
+        .replace(/ü/g, 'ue')
+        .replace(/ß/g, 'ss')
+        .replace(/Ä/g, 'Ae')
+        .replace(/Ö/g, 'Oe')
+        .replace(/Ü/g, 'Ue');
+    
+    filePath += ".md";
+
+    document.getElementById("currentFP").value = filePath;
+
     filePath = './' + filePath;
 
     const formData = new URLSearchParams();
