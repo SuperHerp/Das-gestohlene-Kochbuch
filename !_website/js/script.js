@@ -390,6 +390,7 @@ async function addPage(event) {
 
         if (response.ok) {
             getDirTree(document.getElementById("dirTree"));
+            generateTOC(event);
             showNotification(responseMsg.message, 'success');
         } else {
             showNotification(responseMsg.message, 'error');
@@ -909,6 +910,7 @@ async function loadSearchIndex(params) {
  *  
  */
 async function generateJSONDocs(params) {
+    generateTOC(params);
     try {
         const response = await fetch('!_website/php/gen_json_docs.php', {
             method: 'POST'
@@ -923,6 +925,33 @@ async function generateJSONDocs(params) {
 
     } catch (error) {
         showNotification('Generating docs.json failed!', 'error');
+    }
+
+}
+
+/**
+ * @event generateJSONDocs
+ * 
+ * @description 
+ * Event callback for "gendocs-btn"
+ * Sends request to generate search index to server
+ *  
+ */
+async function generateTOC(params) {
+    try {
+        const response = await fetch('!_website/php/gen_toc.php', {
+            method: 'POST'
+        });
+
+        if (response.ok) {
+            await loadSearchIndex();
+            showNotification('Generated README.md!', 'success');
+        } else {
+            showNotification('Generating README.md failed!', 'error');
+        }
+
+    } catch (error) {
+        showNotification('Generating README.md failed!', 'error');
     }
 
 }
