@@ -46,12 +46,15 @@ function createFileOrFolder($path) {
             // check if path already exists
             if(!is_dir($dirPath)){
                 // path does not exist yet => create folder structure => create file
+                
                 if(!mkdir($dirPath, 0777, true)){
                     http_response_code(400);
                     $response['status'] = 'error';
                     $response['message'] = "Cannot create directory path.";
                 } else {
+                    chmod($dirPath, 0774);
                     touch($path);
+                    chmod($path, 0774);
                     file_put_contents($path, path2TOC($path));
                     http_response_code(200);
                     $response['status'] = 'success';
