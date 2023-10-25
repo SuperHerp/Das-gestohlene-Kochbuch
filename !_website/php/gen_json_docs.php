@@ -56,7 +56,7 @@ function dirWalker($startDir, &$jsonString) {
                             $splitPath = explode("Das-gestohlene-Kochbuch", $path);
                             
                             // put title and body into nested json; add trailing ','
-                            $jsonString = $jsonString . "{\"path\":\"" . end($splitPath) . "\",\"title\":\"" . $title . "\",\"body\":\"" . $body . "\"},";
+                            $jsonString = $jsonString . "{\"path\":\"" . substr(end($splitPath), 1) . "\",\"title\":\"" . $title . "\",\"body\":\"" . $body . "\"},";
                         }
                     }
                 }
