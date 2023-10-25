@@ -491,7 +491,7 @@ async function openPage(event) {
  * Shows/Hides text editor depending on current state
  * Also loads/unloads texteditor
  */
-function toggleMonaco(event) {
+async function toggleMonaco(event) {
     const editBtn = document.getElementById("edit-btn");
     const saveBtn = document.getElementById("save-btn");
     const prevBtn = document.getElementById("preview-btn");
@@ -500,6 +500,16 @@ function toggleMonaco(event) {
     const prevDiv = document.getElementById("preview");
     const explBtn = document.getElementById("explorer-btn");
     if (editVis) {
+
+        const fullPath = curPath + curDoc;
+        const content = await fetchContent(fullPath);
+        if (content != editor.getValue()) {
+            let confirmation = confirm("Unsaved changes detected!\nClose editor anyways?");
+            if (!confirmation) {
+                return;
+            }
+        }
+
         explBtn.style.display = 'flex';
         editBtn.innerHTML = "Seite bearbeiten";
 
@@ -521,7 +531,7 @@ function toggleMonaco(event) {
         unloadMonaco(event);
     } else {
         explBtn.style.display = 'none';
-        editBtn.innerHTML = "Bearbeitung beenden<br>(ohne Speichern)";
+        editBtn.innerHTML = "Bearbeitung beenden";
 
         editDiv.style.display = 'flex';
         editVis = true;
