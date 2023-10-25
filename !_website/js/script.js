@@ -364,6 +364,26 @@ async function togglePreview(event) {
 }
 
 /**
+ * @function sanitizeUserInput
+ * 
+ * @param {string} toSan 
+ * @returns sanitized userinput
+ * 
+ * @description Removes special characters and umlaute from unserinput
+ */
+function sanitizeUserInput(toSan) {
+    return toSan
+        .replace(/[^\wäöüAÄÖÜß]+/g, '_')
+        .replace(/ä/g, 'ae')
+        .replace(/ö/g, 'oe')
+        .replace(/ü/g, 'ue')
+        .replace(/ß/g, 'ss')
+        .replace(/Ä/g, 'Ae')
+        .replace(/Ö/g, 'Oe')
+        .replace(/Ü/g, 'Ue');
+}
+
+/**
  * @event addPage
  * 
  * @origin user clicks on button with id 'createFile-btn'
@@ -373,22 +393,44 @@ async function togglePreview(event) {
  * If user specification doesnt meed requirements it fails and shows notification
  */
 async function addPage(event) {
-    let filePath = document.getElementById("currentFP").value.replace(/\s+/g, '_');
-
-    filePath = filePath
-        .replace(/ä/g, 'ae')
-        .replace(/ö/g, 'oe')
-        .replace(/ü/g, 'ue')
-        .replace(/ß/g, 'ss')
-        .replace(/Ä/g, 'Ae')
-        .replace(/Ö/g, 'Oe')
-        .replace(/Ü/g, 'Ue');
+    let fileName = document.getElementById("currentFP").value;
     
-    filePath += ".md";
+    if (fileName == "") {
+        showNotification("Bitte Namen für das Rezept angeben!", "error");
+        return;
+    }
 
-    document.getElementById("currentFP").value = filePath;
+    fileName = sanitizeUserInput(fileName);
 
-    filePath = './' + filePath;
+    document.getElementById("currentFP").value = fileName;
+    
+    fileName += ".md";
+
+
+    const selectedCategory = document.getElementsByName("selected_directory");
+    let filePath = "";
+    let hasSelected = false;
+    for (let idx = 0; idx < selectedCategory.length; idx++) {
+        if (selectedCategory[idx].checked) {
+            if (idx == 0) {
+                filePath = document.getElementById("customCat").value;
+                if (filePath == "") {
+                    showNotification("Bitte Name für Kategorie angeben!", "error");
+                    return;
+                }
+                filePath = sanitizeUserInput(filePath);
+            } else {
+                filePath = selectedCategory[idx].value;
+            }
+            hasSelected = true;
+        }
+    }
+    if (!hasSelected) {
+        showNotification("Bitte wähle eine Kategorie aus!", "error");
+        return;
+    }
+
+    filePath = './' + filePath + "/" + fileName;
 
     const formData = new URLSearchParams();
     formData.append('path', filePath);
