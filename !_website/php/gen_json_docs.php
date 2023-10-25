@@ -53,7 +53,7 @@ function dirWalker($startDir, &$jsonString) {
                                 $body = $body . $val;
                             }
 
-                            $splitPath = explode("Das-gestohlene-Kochbuch", $path);
+                            $splitPath = explode("http", $path);
                             
                             // put title and body into nested json; add trailing ','
                             $jsonString = $jsonString . "{\"path\":\"" . substr(end($splitPath), 1) . "\",\"title\":\"" . $title . "\",\"body\":\"" . $body . "\"},";
@@ -89,6 +89,8 @@ dirWalker($startDir, $jsonString);
 $jsonString = substr($jsonString, 0, -1) . ']';
 
 // save json
-file_put_contents("./!_website/docs.php.json", $jsonString)
+file_put_contents("./!_website/docs.php.json", $jsonString);
+echo $jsonString;
+
 
 ?>
