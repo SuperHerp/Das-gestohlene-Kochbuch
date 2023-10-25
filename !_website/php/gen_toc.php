@@ -45,7 +45,6 @@ if ($handle = opendir($rootDirectory)) {
                         // // Generate Markdown content for the recipe
                         // $markdownContent[] = "- [$recipe]($entry/$recipe)";
 
-						
                         // Format the link text
                         $formattedText = formatLinkText($recipe);
 
