@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Kochbuch</title>
+    <meta charset="UTF-8">
+    <title>Das gestohlene Kochbuch</title>
+    <link rel="icon" type="image/x-icon" href="!_website/pictures/icons/thief.png">
     <script src="!_website/js/marked.js"></script>
     <script src="!_website/js/script.js"></script>
-    <script src="!_website/js/search.js"></script>
     <script type="text/javascript" src="!_website/js/purify/purify.min.js"></script>
     <link rel="stylesheet" href="!_website/css/stylesheet.css">
     <link rel="stylesheet" src="!_website/js/monaco/min/vs/editor/editor.main.css">
@@ -12,14 +14,15 @@
     <link rel="stylesheet" href="!_website/js/highlight/styles/custom-night-dark.min.css">
     <script src="!_website/js/highlight/highlight.min.js"></script>
 </head>
+
 <body>
     <div id="menu">
         <input type="text" placeholder="Search" id="search-field">
-        <button id="edit-btn">Edit Page</button>
-        <button id="save-btn">Save</button>
-        <button id="preview-btn">Show Preview</button>
-        <button id="explorer-btn">Show Explorer</button>
-        <button id="gendocs-btn">Generate Searchindex</button>
+        <button id="edit-btn">Seite bearbeiten</button>
+        <button id="save-btn">Speichern</button>
+        <button id="preview-btn">Vorschau anzeigen</button>
+        <button id="explorer-btn">Seite hinzufügen</button>
+        <button id="gendocs-btn">Suche Aktualisieren</button>
         <div id="notification" class="notification-container"></div>
     </div>
     <div id="search-results">
@@ -45,9 +48,10 @@
             </div>
         </div>
         <div id="expl-menu">
-            <button id="createFile-btn">Create file</button>
+            <button id="createFile-btn">Rezept erstellen</button>
             <!-- <button id="openPage-btn">Open Page</button> -->
         </div>
     </div>
 </body>
+
 </html>

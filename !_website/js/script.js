@@ -348,11 +348,11 @@ async function togglePreview(event) {
     if (prevVis) {
         prevVis = false;
         prevDiv.style.display = 'none'
-        prevBtn.innerHTML = "Show preview";
+        prevBtn.innerHTML = "Vorschau anzeigen";
         editDiv.style.display = 'block';
     } else {
         prevVis = true;
-        prevBtn.innerHTML = "Hide preview";
+        prevBtn.innerHTML = "Vorschau beenden";
         // const previewDiv = document.getElementById("preview");
 
         displayContent(prevDiv, DOMPurify.sanitize(marked.parse(editor.getValue())));
@@ -501,7 +501,7 @@ function toggleMonaco(event) {
     const explBtn = document.getElementById("explorer-btn");
     if (editVis) {
         explBtn.style.display = 'flex';
-        editBtn.innerHTML = "Edit Page";
+        editBtn.innerHTML = "Seite bearbeiten";
 
         editDiv.style.display = 'none';
         editVis = false;
@@ -521,7 +521,7 @@ function toggleMonaco(event) {
         unloadMonaco(event);
     } else {
         explBtn.style.display = 'none';
-        editBtn.innerHTML = "Close editor";
+        editBtn.innerHTML = "Bearbeitung beenden<br>(ohne Speichern)";
 
         editDiv.style.display = 'flex';
         editVis = true;
@@ -629,13 +629,13 @@ async function toggleExplorer(event) {
         explDiv.style.display = 'none';
         explVis = false;
         editBtn.style.display = 'block';
-        explBtn.innerHTML = "Show explorer";
+        explBtn.innerHTML = "Seite hinzufügen";
     } else {
         contDiv.style.display = 'none';
         contVis = false;
         const dirTrDiv = document.getElementById("dirTree");
         editBtn.style.display = 'none';
-        explBtn.innerHTML = "Hide explorer";
+        explBtn.innerHTML = "Seite hinzufügen abbrechen";
 
         await getDirTree(dirTrDiv);
 
