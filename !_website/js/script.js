@@ -610,65 +610,38 @@ async function toggleExplorer(event) {
 // --------------------------------------------------------------------------
 
 /**
- * @function incrCurIdx
+ * @function actSearch
+ * 
+ * @param {json-element} sdElement 
+ * @param {string} searchTerm 
  * 
  * @description
- * Attempt to sync incrementing curIdx
+ * Performs search on one json-Element from searchData array
  */
-async function incrCurIdx(params) {
-    await curIdxMutex;
-    curIdxMutex = new Promise(resolve => {
-        curIdx++;
-        resolve();
+function actSearch(sdElement, searchTerm) {
+    
+    let stLen = searchTerm.length;
+    let title = sdElement.title;
+    let body = sdElement.body;
+    const path = sdElement.path;
+    
+    let score = 0;
+    const titlePerC = (stLen / title.length) * 100;
+
+    let searchRegExp = new RegExp(searchTerm, 'gi');
+
+    let titleMatches = [...title.matchAll(searchRegExp)];
+    titleMatches.forEach(hit => {
+        score = score + titlePerC - (hit.index * 0.5);
     });
-    await curIdxMutex;
+
+    let matches = [...body.matchAll(new RegExp(searchTerm, 'gi'))];
+    score = score + Math.min(matches.length, 20);
+    let _fbody = body.replace(new RegExp(searchTerm, 'gi'), match => `<mark>${match}</mark>`);
+
+    return {score, title, path, _fbody};
 }
 
-/**
- * @function resetCurIdx
- * 
- * @description
- * Attempt to sync resetting curIdx
- */
-async function resetCurIdx(params) {
-    await curIdxMutex;
-    curIdxMutex = new Promise(resolve => {
-        curIdx = 0;
-        resolve();
-    });
-    await curIdxMutex;
-}
-
-/**
- * @function killWebWorkers
- * 
- * @description
- * kills webworkers then creates them
- */
-async function killWebWorkers(kill) {
-    if (kill) {
-        workers.forEach(worker => {
-            worker.terminate();
-        });
-    }
-    for (let index = 0; index < nrOfWorkers; index++) {
-        workers[index] = new Worker('!_website/js/search.js');
-        workers[index].onmessage = handleSearchResult;
-        workers[index].onerror = webWorkerError;
-        // ???
-    }
-    return;
-}
-
-/**
- * @callback webWorkerError
- * 
- * @description
- * Gets called when any error happens with any webworker
- */
-function webWorkerError(params) {
-    console.log("Webworker Error!");
-}
 
 /**
  * @event startSearch
@@ -693,81 +666,58 @@ async function startSearch(params) {
         searchList.innerHTML = 'No searchterm provided!';
         return;
     }
-    await killWebWorkers(true);
-    await resetCurIdx();
+    curIdx = 0;
     document.getElementById('results-list').innerHTML = '';
 
-    for (curIdx; curIdx < nrOfWorkers; await incrCurIdx()) {
-        searchData[curIdx]['q'] = searchTerm;
-        searchData[curIdx]['id'] = curIdx;
-        workers[curIdx].postMessage(searchData[curIdx]);
-    }
-}
+    // for (curIdx; curIdx < nrOfWorkers; await incrCurIdx()) {
+    for (curIdx; curIdx < searchData.length; curIdx++) {
+        const { score, title, path, _fbody } = actSearch(searchData[curIdx], searchTerm);
 
-
-/**
- * @event handleSearchResult
- * 
- * @origin webworker returns result of search
- * 
- * @description
- * Event for when webworker returns a result of a partial search through searchData
- * Sorts results based on score provided and updates search result list
- * If search is not completed it will start webworker again
- * 
- */
-async function handleSearchResult(response) {
-    const { id, score, title, path, _fbody, searchTerm } = await response.data;
-    if (curIdx < searchData.length) {
-        await incrCurIdx();
-        searchData[curIdx]['q'] = searchTerm;
-        searchData[curIdx]['id'] = id;
-        workers[id].postMessage(searchData[curIdx]);
-    }
-    if (score < 0.5) {
-        return;
-    }
-
-    const listItem = document.createElement('li');
-
-    const titleHeading = document.createElement('h4');
-    titleHeading.textContent = title;
-    listItem.appendChild(titleHeading);
-
-    const pathLink = document.createElement('a');
-    // pathLink.addEventListener('click', handleSearchLinkClick);
-    pathLink.addEventListener('click', handleLinkClick);
-    // pathLink.setAttribute('class', 'file-link')
-    pathLink.textContent = `Path: ${path}`;
-    pathLink.href = path;
-    listItem.appendChild(pathLink);
-
-    const bodyParagraph = document.createElement('p');
-    bodyParagraph.innerHTML = _fbody;
-    listItem.appendChild(bodyParagraph);
-
-    listItem.setAttribute('data-score', score);
-
-    const searchResults = document.getElementById('results-list');
-    const existingItems = searchResults.querySelectorAll('li');
-
-    // insert result based on score
-    let inserted = false;
-    for (let i = 0; i < existingItems.length; i++) {
-        const existingScore = parseFloat(existingItems[i].getAttribute('data-score'));
-        if (score > existingScore) {
-            searchResults.insertBefore(listItem, existingItems[i]);
-            inserted = true;
-            break;
+        if (score < 0.2) {
+            continue;
         }
-    }
-    if (!inserted) {
-        searchResults.appendChild(listItem);
-    }
-
-    if (!resVis) {
-        document.getElementById('search-results').style.display = 'flex';
-        resVis = true;
+    
+        const listItem = document.createElement('li');
+    
+        const titleHeading = document.createElement('h4');
+        titleHeading.textContent = title;
+        listItem.appendChild(titleHeading);
+    
+        const pathLink = document.createElement('a');
+        // pathLink.addEventListener('click', handleSearchLinkClick);
+        pathLink.addEventListener('click', handleLinkClick);
+        // pathLink.setAttribute('class', 'file-link')
+        pathLink.textContent = `Path: ${path}`;
+        pathLink.href = path;
+        listItem.appendChild(pathLink);
+    
+        const bodyParagraph = document.createElement('p');
+        bodyParagraph.innerHTML = _fbody;
+        listItem.appendChild(bodyParagraph);
+    
+        listItem.setAttribute('data-score', score);
+    
+        const searchResults = document.getElementById('results-list');
+        const existingItems = searchResults.querySelectorAll('li');
+    
+        // insert result based on score
+        let inserted = false;
+        for (let i = 0; i < existingItems.length; i++) {
+            const existingScore = parseFloat(existingItems[i].getAttribute('data-score'));
+            if (score > existingScore) {
+                searchResults.insertBefore(listItem, existingItems[i]);
+                inserted = true;
+                break;
+            }
+        }
+        if (!inserted) {
+            searchResults.appendChild(listItem);
+        }
+    
+        if (!resVis) {
+            document.getElementById('search-results').style.display = 'flex';
+            resVis = true;
+        }
     }
 }
 
@@ -909,7 +859,6 @@ async function loadSearchIndex(params) {
     try {
         const resp = await fetch('!_website/docs.php.json');
         searchData = await resp.json();
-        killWebWorkers(false);
     } catch (error) {
         console.error("Could not instantiate Webworker!");
     }
