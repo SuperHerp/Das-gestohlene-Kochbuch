@@ -8,6 +8,7 @@
     font-family: Delugia;
     src: url('../fonts/DelugiaMonoCompleteLight.ttf');
 }
+
 @font-face {
     font-family: OpenSans;
     src: url('../fonts/OpenSans-Regular.ttf');
@@ -61,19 +62,20 @@
     padding-bottom: 2vw;
 }
 
-#expl-menu{
+#expl-menu {
     display: flex;
     flex-direction: row;
     width: inherit;
 }
 
-#filepath{
+#filepath {
     display: flex;
     flex-direction: column;
 }
 
 #currentFP {
     width: inherit;
+    margin-top: 10px;
     font-family: 'OpenSans', sans-serif;
     font-size: 16px;
     padding: 5px;
@@ -84,9 +86,11 @@
 }
 
 #createFile-btn,
-#openPage-btn{
-    background-color: #58a6ff; /* Button background color */
-    color: #ffffff; /* Button text color */
+#openPage-btn {
+    background-color: #58a6ff;
+    /* Button background color */
+    color: #ffffff;
+    /* Button text color */
     border: none;
     padding: 5px;
     margin-right: 10px;
@@ -95,27 +99,30 @@
     cursor: pointer;
 }
 
-#explorer-btn{
-    background-color: #58a6ff; /* Button background color */
-    color: #ffffff; /* Button text color */
+#explorer-btn {
+    background-color: #58a6ff;
+    /* Button background color */
+    color: #ffffff;
+    /* Button text color */
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 10px; /* Adjust spacing between buttons */
+    margin-right: 10px;
+    /* Adjust spacing between buttons */
     display: block;
 }
 
-#explorer{
+#explorer {
     display: none;
 }
 
-#menu{
+#menu {
     display: flex;
     flex-direction: row;
 }
 
-#editor{
+#editor {
     background-color: #1e1e1e;
     display: none;
     border: #2a7fd4 2px solid;
@@ -128,7 +135,7 @@
     margin-bottom: 10px;
 }
 
-#gendocs-btn{
+#gendocs-btn {
     background-color: #ff9e36;
     color: #ffffff;
     border: none;
@@ -142,20 +149,24 @@
 #save-btn,
 #cancel-btn,
 #preview-btn {
-    background-color: #58a6ff; /* Button background color */
-    color: #ffffff; /* Button text color */
+    background-color: #58a6ff;
+    /* Button background color */
+    color: #ffffff;
+    /* Button text color */
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 10px; /* Adjust spacing between buttons */
+    margin-right: 10px;
+    /* Adjust spacing between buttons */
     display: none;
 }
 
 #save-btn:hover,
 #cancel-btn:hover,
 #preview-btn:hover {
-    background-color: #2a7fd4; /* Hover background color */
+    background-color: #2a7fd4;
+    /* Hover background color */
 }
 
 #edit-btn {
@@ -170,7 +181,8 @@
 }
 
 #edit-btn:hover {
-    background-color: #ffb45e; /* Edit button hover background color */
+    background-color: #ffb45e;
+    /* Edit button hover background color */
 }
 
 .notification-container {
@@ -185,17 +197,19 @@
 }
 
 .notification-container.success {
-    background-color: #8bc34a; /* Green background for success */
+    background-color: #8bc34a;
+    /* Green background for success */
     color: #fff;
 }
 
 .notification-container.error {
-    background-color: #f44336; /* Red background for error */
+    background-color: #f44336;
+    /* Red background for error */
     color: #fff;
 }
 
 
-body{
+body {
     font-family: 'OpenSans', sans-serif;
     background-color: #0d1117;
     border: 2px solid #30363d;
@@ -224,28 +238,28 @@ body::-webkit-scrollbar-track {
     background-color: #1e1e1e;
 }
 
-a:link{
+a:link {
     text-decoration: none;
     color: #58a6ff;
 }
 
-a:hover{
+a:hover {
     text-decoration: underline;
     color: #58a6ff;
 }
 
-a:visited{
+a:visited {
     color: #58a6ff;
 }
 
-h1::after{
+h1::after {
     content: '  ';
     display: block;
     border: 1px solid #21262d;
     border-radius: 15px;
 }
 
-h2::after{
+h2::after {
     content: '  ';
     display: block;
     border: 1px solid #21262d;
@@ -257,18 +271,19 @@ hr {
     border-radius: 15px;
 }
 
-table{
+table {
     border: 1px solid #30363d;
     border-radius: 5px;
 }
 
-th, td {
+th,
+td {
     border: 1px solid #30363d;
     border-radius: 4px;
     padding: 1vw;
 }
 
-pre{
+pre {
     display: flex;
     width: fit-content;
     background-color: #161b22;
