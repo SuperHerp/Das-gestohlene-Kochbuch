@@ -394,7 +394,7 @@ function sanitizeUserInput(toSan) {
  */
 async function addPage(event) {
     let fileName = document.getElementById("currentFP").value;
-    
+
     if (fileName == "") {
         showNotification("Bitte Namen für das Rezept angeben!", "error");
         return;
@@ -403,7 +403,7 @@ async function addPage(event) {
     fileName = sanitizeUserInput(fileName);
 
     document.getElementById("currentFP").value = fileName;
-    
+
     fileName += ".md";
 
 
@@ -671,12 +671,12 @@ async function toggleExplorer(event) {
  * Performs search on one json-Element from searchData array
  */
 function actSearch(sdElement, searchTerm) {
-    
+
     let stLen = searchTerm.length;
     let title = sdElement.title;
     let body = sdElement.body;
     const path = sdElement.path;
-    
+
     let score = 0;
     const titlePerC = (stLen / title.length) * 100;
 
@@ -691,7 +691,7 @@ function actSearch(sdElement, searchTerm) {
     score = score + Math.min(matches.length, 20);
     let _fbody = body.replace(new RegExp(searchTerm, 'gi'), match => `<mark>${match}</mark>`);
 
-    return {score, title, path, _fbody};
+    return { score, title, path, _fbody };
 }
 
 
@@ -728,13 +728,13 @@ async function startSearch(params) {
         if (score < 0.2) {
             continue;
         }
-    
+
         const listItem = document.createElement('li');
-    
+
         const titleHeading = document.createElement('h4');
         titleHeading.textContent = title;
         listItem.appendChild(titleHeading);
-    
+
         const pathLink = document.createElement('a');
         // pathLink.addEventListener('click', handleSearchLinkClick);
         pathLink.addEventListener('click', handleLinkClick);
@@ -742,16 +742,16 @@ async function startSearch(params) {
         pathLink.textContent = `Path: ${path}`;
         pathLink.href = path;
         listItem.appendChild(pathLink);
-    
+
         const bodyParagraph = document.createElement('p');
         bodyParagraph.innerHTML = _fbody;
         listItem.appendChild(bodyParagraph);
-    
+
         listItem.setAttribute('data-score', score);
-    
+
         const searchResults = document.getElementById('results-list');
         const existingItems = searchResults.querySelectorAll('li');
-    
+
         // insert result based on score
         let inserted = false;
         for (let i = 0; i < existingItems.length; i++) {
@@ -765,7 +765,7 @@ async function startSearch(params) {
         if (!inserted) {
             searchResults.appendChild(listItem);
         }
-    
+
         if (!resVis) {
             document.getElementById('search-results').style.display = 'flex';
             resVis = true;
