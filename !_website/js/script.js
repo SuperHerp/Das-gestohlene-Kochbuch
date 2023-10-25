@@ -973,7 +973,7 @@ async function main() {
     document.getElementById("gendocs-btn").addEventListener("click", generateJSONDocs);
 
     document.getElementById("createFile-btn").addEventListener("click", addPage);
-    document.getElementById("openPage-btn").addEventListener("click", openPage);
+    // document.getElementById("openPage-btn").addEventListener("click", openPage);
     document.getElementById("search-field").addEventListener("input", startSearch);
     document.getElementById("search-field").addEventListener("click", startSearch);
     document.getElementById('search-results').addEventListener('mouseleave', hideSearchResults);
