@@ -27,5 +27,5 @@
 
 ## Related:
 
-- [caesar_salat](../herzhaft/caesar_salat.md)
+- [Caesar Salat](../herzhaft/caesar_salat.md)
 

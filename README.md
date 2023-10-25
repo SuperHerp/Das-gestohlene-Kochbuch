@@ -2,10 +2,10 @@
 
 ## Inhaltsverzeichnis
 
-## Herzhaft
+## Salate
 
-- [Buchweizen](herzhaft/buchweizen.md)
-- [Caesar Salat](herzhaft/caesar_salat.md)
+- [Buchweizen](salate/buchweizen.md)
+- [Caesar Salat](salate/caesar_salat.md)
 
 
 ## Sossen
@@ -36,5 +36,5 @@
 
 ## Toppings
 
-- [Croutons](toppings/Croutons.md)
+- [Croutons](toppings/croutons.md)
 
