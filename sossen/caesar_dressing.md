@@ -24,4 +24,4 @@
 
 ## Related:
 
-- [caesar_salat](../herzhaft/caesar_salat.md)
+- [caesar_salat](../salate/caesar_salat.md)
