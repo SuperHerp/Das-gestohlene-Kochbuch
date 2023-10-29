@@ -145,7 +145,8 @@
 #preview{
     display: none;
     height: 80vh;
-    width: 100%;
+    width: 97.5%;
+    padding-left: 2.5%;
     overflow-y: scroll;
 }
 
@@ -230,8 +231,8 @@ body {
     border-radius: 15px;
     /* margin-left: 10vw;
     margin-right: 10vw; */
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
     padding-top: 2vw;
     padding-bottom: 2vw;
     color: #c9d1d9;
