@@ -3,8 +3,8 @@
 // --------------------------------------------------------------------------
 let curPath = "";
 let curDoc = "README.md";
-const BDIR = "/Das-gestohlene-Kochbuch/";
-// const BDIR = "";
+// const BDIR = "/Das-gestohlene-Kochbuch/";
+const BDIR = "";
 let prevVis = false;
 let contVis = true;
 let explVis = false;
@@ -288,7 +288,20 @@ async function loadMonaco(event) {
             value: content,
             language: 'markdown',
             theme: "vs-dark",
-            automaticLayout: true
+            automaticLayout: true,
+            wordWrap: 'on'
+        });
+        editor.onDidChangeModelContent((event) =>{
+            displayContent(document.getElementById("preview"), DOMPurify.sanitize(marked.parse(editor.getValue())));
+        });
+        editor.onDidScrollChange((event) => {
+            if(prevVis){
+                let edHeight = editor.getScrollHeight();
+                let prevHeight = document.getElementById("preview").scrollHeight;
+
+                let edPos = editor.getScrollTop();
+                document.getElementById("preview").scrollTop = (edPos/edHeight)*prevHeight;
+            }
         });
     });
 }
@@ -349,7 +362,7 @@ async function togglePreview(event) {
         prevVis = false;
         prevDiv.style.display = 'none'
         prevBtn.innerHTML = "Vorschau anzeigen";
-        editDiv.style.display = 'block';
+        // editDiv.style.display = 'block';
     } else {
         prevVis = true;
         prevBtn.innerHTML = "Vorschau beenden";
@@ -359,7 +372,7 @@ async function togglePreview(event) {
         // genURL();
 
         prevDiv.style.display = 'block';
-        editDiv.style.display = 'none';
+        // editDiv.style.display = 'none';
     }
 }
 
@@ -495,10 +508,11 @@ async function toggleMonaco(event) {
     const editBtn = document.getElementById("edit-btn");
     const saveBtn = document.getElementById("save-btn");
     const prevBtn = document.getElementById("preview-btn");
-    const editDiv = document.getElementById("editor");
-    const contDiv = document.getElementById("content");
-    const prevDiv = document.getElementById("preview");
     const explBtn = document.getElementById("explorer-btn");
+    const contDiv = document.getElementById("content");
+    const eApDiv = document.getElementById("EditAndPrVw");
+    const editDiv = document.getElementById("editor");
+    const prevDiv = document.getElementById("preview");
     if (editVis) {
 
         const fullPath = curPath + curDoc;
@@ -510,10 +524,12 @@ async function toggleMonaco(event) {
             }
         }
 
+        eApDiv.style.display = 'none';
+
         explBtn.style.display = 'flex';
         editBtn.innerHTML = "Seite bearbeiten";
 
-        editDiv.style.display = 'none';
+        // editDiv.style.display = 'none';
         editVis = false;
 
         saveBtn.style.display = 'none';
@@ -523,7 +539,9 @@ async function toggleMonaco(event) {
         if (prevVis) {
             prevDiv.style.display = 'none';
             prevVis = false;
+            prevBtn.innerHTML = "Vorschau anzeigen";
         }
+
 
         contDiv.style.display = 'block';
         contVis = true;
@@ -533,16 +551,25 @@ async function toggleMonaco(event) {
         explBtn.style.display = 'none';
         editBtn.innerHTML = "Bearbeitung beenden";
 
-        editDiv.style.display = 'flex';
+        eApDiv.style.display = 'flex'
+
+        // editDiv.style.display = 'flex';
         editVis = true;
 
+        // if (!prevVis) {
+        //     prevDiv.style.display = 'flex';
+        //     prevVis = true;
+        // }
+
+        
         contDiv.style.display = 'none';
         contVis = false;
-
+        
         saveBtn.style.display = 'flex';
         prevBtn.style.display = 'flex';
-
-        loadMonaco(event);
+        
+        await loadMonaco(event);
+        // togglePreview(event);
     }
 }
 
