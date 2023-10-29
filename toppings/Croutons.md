@@ -9,7 +9,7 @@
 - 5 Knoblauchzehen
 - 1/2TL Salz
 - Optional:
-  - Petersilienlaub (nicht bei [Caesar Salad](../herzhaft/caesar_salat.md))
+  - Petersilienlaub (nicht bei [Caesar Salad](../salate/caesar_salat.md))
 
 ## Allgemein
 
@@ -27,5 +27,5 @@
 
 ## Related:
 
-- [Caesar Salat](../herzhaft/caesar_salat.md)
+- [Caesar Salat](../salate/caesar_salat.md)
 
