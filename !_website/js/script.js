@@ -289,11 +289,13 @@ async function loadMonaco(event) {
             language: 'markdown',
             theme: "vs-dark",
             automaticLayout: true,
-            wordWrap: 'on'
+            wordWrap: 'on',
+            scrollBeyondLastLine: false
         });
         editor.onDidChangeModelContent((event) =>{
             displayContent(document.getElementById("preview"), DOMPurify.sanitize(marked.parse(editor.getValue())));
         });
+
         editor.onDidScrollChange((event) => {
             if(prevVis){
                 let edHeight = editor.getScrollHeight();
@@ -301,6 +303,21 @@ async function loadMonaco(event) {
 
                 let edPos = editor.getScrollTop();
                 document.getElementById("preview").scrollTop = (edPos/edHeight)*prevHeight;
+
+
+                // Das DOM-Element für das Dokument (body oder html) auswählen
+                var documentElement = document.getElementById("preview");
+
+                // Die Höhe des gesamten Dokuments (einschließlich des nicht sichtbaren Bereichs) ermitteln
+                var totalDocumentHeight = Math.max(documentElement.scrollHeight, documentElement.clientHeight);
+
+                // Die Höhe des sichtbaren Bereichs des Dokuments ermitteln
+                var visibleHeight = documentElement.clientHeight;
+
+                // Die Länge des vertikalen Scrollbalkens berechnen
+                var scrollbarLength = totalDocumentHeight - visibleHeight;
+
+                console.log("Länge des vertikalen Scrollbalkens: " + scrollbarLength);
             }
         });
     });
@@ -721,6 +738,11 @@ function actSearch(sdElement, searchTerm) {
     return { score, title, path, _fbody };
 }
 
+async function removeSearchEVL(event){
+    hideSearchResults();
+    document.getElementById("mainpage").removeEventListener("click",removeSearchEVL);
+}
+
 
 /**
  * @event startSearch
@@ -732,6 +754,7 @@ function actSearch(sdElement, searchTerm) {
  * 
  */
 async function startSearch(params) {
+    document.getElementById("mainpage").addEventListener("click",removeSearchEVL);
     if (!resVis) {
         document.getElementById('search-results').style.display = 'flex';
         resVis = true;

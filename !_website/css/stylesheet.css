@@ -317,6 +317,10 @@ pre code {
     font-size: 11pt;
 }
 
+ol li{
+    margin: 0.5pt;
+}
+
 .hljs {
     background: #1c2531 !important;
 }
