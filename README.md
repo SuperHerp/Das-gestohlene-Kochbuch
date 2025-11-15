@@ -2,15 +2,29 @@
 
 ## Inhaltsverzeichnis
 
-## Toppings
-
-- [Croutons](toppings/Croutons.md)
-
-
 ## Sossen
 
 - [Orangendressing](sossen/orangendressing.md)
 - [Caesar Dressing](sossen/caesar_dressing.md)
+
+
+## Suess
+
+- [Wiener Apfelstrudel](suess/wiener_apfelstrudel.md)
+
+
+## Schnell
+
+- [Nudelauflauf](schnell/Nudelauflauf.md)
+
+
+## Teig
+
+- [Muerb Teig](teig/muerb_teig.md)
+- [Blaetterteig Mit Fett](teig/blaetterteig_mit_fett.md)
+- [Blatterteig Mit Butter](teig/blatterteig_mit_butter.md)
+- [Knetteig](teig/knetteig.md)
+- [Strudel Teig](teig/strudel_teig.md)
 
 
 ## Salate
@@ -19,42 +33,24 @@
 - [Buchweizen](salate/buchweizen.md)
 
 
-## Oma_Marias_Hauptgerichte
+## Hauptgerichte
 
-- [Gefuellte Paprika](Oma_Marias_Hauptgerichte/Gefuellte_Paprika.md)
+- [Gefuellte Paprika](hauptgerichte/Gefuellte_Paprika.md)
 
 
-## Suess
+## Rindfleisch
 
-- [Wiener Apfelstrudel](suess/wiener_apfelstrudel.md)
+- [Tafelspitz](Rindfleisch/tafelspitz.md)
 
 
 ## Kuchen
 
-- [Zucchini Schokolade Kuchen](kuchen/Zucchini_Schokolade_Kuchen.md)
-- [Szekler Kuchen](kuchen/Szekler_Kuchen.md)
-- [Rahm Kuchen](kuchen/rahm_kuchen.md)
-- [Traeubles Kuchen](kuchen/traeubles_kuchen.md)
 - [Nussstrudel](kuchen/nussstrudel.md)
+- [Szekler Kuchen](kuchen/Szekler_Kuchen.md)
 - [Kaesekuchen](kuchen/kaesekuchen.md)
-
-
-## Plaetzchen
-
-
-
-## Teig
-
-- [Strudel Teig](teig/strudel_teig.md)
-- [Blaetterteig Mit Fett](teig/blaetterteig_mit_fett.md)
-- [Blatterteig Mit Butter](teig/blatterteig_mit_butter.md)
-- [Muerb Teig](teig/muerb_teig.md)
-- [Knetteig](teig/knetteig.md)
-
-
-## Schnell
-
-- [Nudelauflauf](schnell/Nudelauflauf.md)
+- [Zucchini Schokolade Kuchen](kuchen/Zucchini_Schokolade_Kuchen.md)
+- [Traeubles Kuchen](kuchen/traeubles_kuchen.md)
+- [Rahm Kuchen](kuchen/rahm_kuchen.md)
 
 
 ## Eintopf
@@ -62,7 +58,7 @@
 - [Chilli Con Carne](Eintopf/Chilli_con_Carne.md)
 
 
-## Rindfleisch
+## Toppings
 
-- [Tafelspitz](Rindfleisch/tafelspitz.md)
+- [Croutons](toppings/Croutons.md)
 
