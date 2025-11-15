@@ -29,7 +29,7 @@ Zubereitung
 
 ## Allgemein
 
-**x-Zeit: XX**
+**x-Zeit: 34min**
 
 **y-Zeit: Die Kochdauer beträgt ca. 3-4 Std.
 

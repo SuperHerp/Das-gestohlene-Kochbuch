@@ -2,39 +2,67 @@
 
 ## Inhaltsverzeichnis
 
-## Salate
+## Toppings
 
-- [Buchweizen](salate/buchweizen.md)
-- [Caesar Salat](salate/caesar_salat.md)
+- [Croutons](toppings/Croutons.md)
 
 
 ## Sossen
 
-- [Caesar Dressing](sossen/caesar_dressing.md)
 - [Orangendressing](sossen/orangendressing.md)
+- [Caesar Dressing](sossen/caesar_dressing.md)
+
+
+## Salate
+
+- [Caesar Salat](salate/caesar_salat.md)
+- [Buchweizen](salate/buchweizen.md)
+
+
+## Oma_Marias_Hauptgerichte
+
+- [Gefuellte Paprika](Oma_Marias_Hauptgerichte/Gefuellte_Paprika.md)
 
 
 ## Suess
 
-- [Rahm Kuchen](suess/rahm_kuchen.md)
-- [Traeubles Kuchen](suess/traeubles_kuchen.md)
 - [Wiener Apfelstrudel](suess/wiener_apfelstrudel.md)
 
 
-## Suppen
+## Kuchen
 
-- [Griesknoedelsuppe](suppen/griesknoedelsuppe.md)
+- [Zucchini Schokolade Kuchen](kuchen/Zucchini_Schokolade_Kuchen.md)
+- [Szekler Kuchen](kuchen/Szekler_Kuchen.md)
+- [Rahm Kuchen](kuchen/rahm_kuchen.md)
+- [Traeubles Kuchen](kuchen/traeubles_kuchen.md)
+- [Nussstrudel](kuchen/nussstrudel.md)
+- [Kaesekuchen](kuchen/kaesekuchen.md)
+
+
+## Plaetzchen
+
 
 
 ## Teig
 
+- [Strudel Teig](teig/strudel_teig.md)
 - [Blaetterteig Mit Fett](teig/blaetterteig_mit_fett.md)
 - [Blatterteig Mit Butter](teig/blatterteig_mit_butter.md)
 - [Muerb Teig](teig/muerb_teig.md)
-- [Strudel Teig](teig/strudel_teig.md)
+- [Knetteig](teig/knetteig.md)
 
 
-## Toppings
+## Schnell
 
-- [Croutons](toppings/croutons.md)
+- [Nudelauflauf](schnell/Nudelauflauf.md)
+
+
+## Eintopf
+
+- [Chilli Con Carne](Eintopf/Chilli_con_Carne.md)
+
+
+## Rindfleisch
+
+- [Tafelspitz](Rindfleisch/tafelspitz.md)
 

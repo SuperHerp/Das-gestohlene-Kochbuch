@@ -29,5 +29,5 @@
 
 ## Related:
 
-- [Träubleskuchen](../suess/traeubles_kuchen.md)
-- [Rahmkuchen](../suess/rahm_kuchen.md)
+- [Träubleskuchen](../kuchen/traeubles_kuchen.md)
+- [Rahmkuchen](../kuchen/rahm_kuchen.md)
